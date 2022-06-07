@@ -13,4 +13,8 @@ public class AdminController {
 	public String getAdmin() {
 		return "admin/admin01";
 	}
+	
+	public String asdf() {
+		return "";
+	}
 }
