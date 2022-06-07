@@ -1,4 +1,4 @@
-package ksmart.mybatis.controller;
+package ksmart.mybatis.web;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import ksmart.mybatis.dto.Goods;
+import ksmart.mybatis.domain.Goods;
 import ksmart.mybatis.service.GoodsService;
 
 @Controller

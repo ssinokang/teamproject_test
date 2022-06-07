@@ -1,4 +1,4 @@
-package ksmart.mybatis.dto;
+package ksmart.mybatis.domain;
 
 import java.util.List;
 

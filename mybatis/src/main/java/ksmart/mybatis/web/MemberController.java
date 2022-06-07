@@ -1,4 +1,4 @@
-package ksmart.mybatis.controller;
+package ksmart.mybatis.web;
 
 import java.util.List;
 
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import ksmart.mybatis.dto.Member;
-import ksmart.mybatis.dto.MemberLevel;
+import ksmart.mybatis.domain.Member;
+import ksmart.mybatis.domain.MemberLevel;
 import ksmart.mybatis.service.MemberService;
 
 @Controller

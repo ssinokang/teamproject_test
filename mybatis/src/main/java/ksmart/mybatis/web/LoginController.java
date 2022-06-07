@@ -1,4 +1,4 @@
-package ksmart.mybatis.controller;
+package ksmart.mybatis.web;
 
 import java.util.Map;
 
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import ksmart.mybatis.dto.Member;
+import ksmart.mybatis.domain.Member;
 import ksmart.mybatis.service.MemberService;
 
 @Controller

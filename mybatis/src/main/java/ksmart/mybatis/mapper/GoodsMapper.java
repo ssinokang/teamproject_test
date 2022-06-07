@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import ksmart.mybatis.dto.Goods;
-import ksmart.mybatis.dto.Member;
+import ksmart.mybatis.domain.Goods;
+import ksmart.mybatis.domain.Member;
 
 @Mapper
 public interface GoodsMapper {

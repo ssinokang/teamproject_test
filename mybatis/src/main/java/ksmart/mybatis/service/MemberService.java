@@ -7,8 +7,8 @@ import java.util.Map;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import ksmart.mybatis.dto.Member;
-import ksmart.mybatis.dto.MemberLevel;
+import ksmart.mybatis.domain.Member;
+import ksmart.mybatis.domain.MemberLevel;
 import ksmart.mybatis.mapper.MemberMapper;
 
 /*서비스(비즈니스로직)임을 명시해야 함 bean 등록을 위해 / 트랜젝션 처리*/
