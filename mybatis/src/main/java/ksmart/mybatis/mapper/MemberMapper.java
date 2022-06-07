@@ -5,8 +5,8 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import ksmart.mybatis.dto.Member;
-import ksmart.mybatis.dto.MemberLevel;
+import ksmart.mybatis.domain.Member;
+import ksmart.mybatis.domain.MemberLevel;
 
 /*매퍼임을 명시해야 함 bean 등록을 위해*/
 @Mapper

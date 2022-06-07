@@ -1,4 +1,4 @@
-package ksmart.mybatis.dto;
+package ksmart.mybatis.domain;
 
 public enum PaymentStatus {
 	COMP,CENCEL

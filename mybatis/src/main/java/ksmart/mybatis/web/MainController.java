@@ -1,4 +1,4 @@
-package ksmart.mybatis.controller;
+package ksmart.mybatis.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

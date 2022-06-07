@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import ksmart.mybatis.dto.Goods;
+import ksmart.mybatis.domain.Goods;
 import ksmart.mybatis.mapper.GoodsMapper;
 
 @Service
