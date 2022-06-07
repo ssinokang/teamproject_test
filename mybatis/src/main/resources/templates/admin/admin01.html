@@ -23,28 +23,31 @@
 	
 	<!-- 사용자 정의 contents -->
 	<th:block layout:fragment="customContents">
-		HTML CSS JSResult Skip Results Iframe
-		EDIT ON
-		<label for="agree_all">
-		  <input type="checkbox" name="agree_all" id="agree_all">
-		  <span>모두 동의합니다</span>
-		</label>
-		<label for="agree">
-		  <input type="checkbox" name="agree" value="1">
-		  <span>이용약관 동의<strong>(필수)</strong></span>
-		</label>
-		<label for="agree">
-		  <input type="checkbox" name="agree" value="2">
-		  <span>개인정보 수집, 이용 동의<strong>(필수)</strong></span>
-		</label>
-		<label for="agree">
-		  <input type="checkbox" name="agree" value="3">
-		  <span>개인정보 이용 동의<strong>(필수)</strong></span>
-		</label>
-		<label for="agree">
-		  <input type="checkbox" name="agree" value="4">
-		  <span>이벤트, 혜택정보 수신동의<strong class="select_disable">(선택)</strong></span>
-		</label>
+		<form th:action="@{/member/addMember}" method="get">
+			HTML CSS JSResult Skip Results Iframe
+			EDIT ON	<br/>
+			<label for="agree_all">
+			  <input type="checkbox" name="agree_all" id="agree_all">
+			  <span>모두 동의합니다</span>
+			</label>	<br/>
+			<label for="agree">
+			  <input type="checkbox" name="agree" value="1">
+			  <span>이용약관 동의<strong>(필수)</strong></span>
+			</label>	<br/>
+			<label for="agree">
+			  <input type="checkbox" name="agree" value="2">
+			  <span>개인정보 수집, 이용 동의<strong>(필수)</strong></span>
+			</label>	<br/>
+			<label for="agree">
+			  <input type="checkbox" name="agree" value="3">
+			  <span>개인정보 이용 동의<strong>(필수)</strong></span>
+			</label>	<br/>
+			<label for="agree">
+			  <input type="checkbox" name="agree" value="4">
+			  <span>이벤트, 혜택정보 수신동의<strong class="select_disable">(선택)</strong></span>
+			</label>	<br/>
+			<button type="submit">버튼</button>
+		</form>
 	</th:block>
 
 </html>
