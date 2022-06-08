@@ -3,11 +3,7 @@
 	<div id="header" th:fragment="headerFragment">
 		head.html<br>
 		상단메뉴<br>
-<<<<<<< HEAD
-		<a th:if="${session.SID == null or session.SLEVEL == '1'}" th:href="@{/admin/admin0123123}">01회원가입</a>
-=======
 		<a th:if="${session.SID == null or session.SLEVEL == '1'}" th:href="@{/member/addMember}">01회원가입</a>
->>>>>>> refs/remotes/origin/KJH
 		<a th:if="${session.SLEVEL == '1'}" th:href="@{/member/memberList}">02회원목록</a>
 		<a th:if="${session.SLEVEL == '1'}" th:href="@{/member/memberInfoList}">03회원상세목록</a>
 		<a th:if="${session.SLEVEL == '1' or session.SLEVEL == '2'}" th:href="@{/goods/addGoods}">04상품등록</a>

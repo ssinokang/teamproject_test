@@ -4,11 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-<<<<<<< HEAD
-import ksmart.mybatis.domain.Goods;
-=======
 import ksmart.mybatis.dto.Goods;
->>>>>>> refs/remotes/origin/KJH
 import ksmart.mybatis.mapper.GoodsMapper;
 
 @Service

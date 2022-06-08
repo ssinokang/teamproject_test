@@ -4,13 +4,8 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-<<<<<<< HEAD
-import ksmart.mybatis.domain.Goods;
-import ksmart.mybatis.domain.Member;
-=======
 import ksmart.mybatis.dto.Goods;
 import ksmart.mybatis.dto.Member;
->>>>>>> refs/remotes/origin/KJH
 
 @Mapper
 public interface GoodsMapper {

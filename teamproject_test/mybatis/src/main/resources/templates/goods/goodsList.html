@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{layout/default.html}">
+
+	<!-- 사용자 정의 contents -->
+	<th:block layout:fragment="customContents">
+	
+		<div th:include="/search/goodsSearch :: searchGoodsFragment"></div>
+		
+		<table border="1">
+			<thead>
+				<tr>
+					<th>상품 코드</th>
+					<th>상품명</th>
+					<th>상품 가격</th>
+					<th>판매자</th>
+					<th>등록일자</th>
+					<th>수정</th>
+					<th>삭제</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:if="${not #lists.isEmpty(goodsList)}" th:each="l : ${goodsList}">
+					<td th:text="${l.goodsCode}"></td>
+					<td th:text="${l.goodsName}"></td>
+					<td th:text="${l.goodsPrice}"></td>
+					<td th:text="${l.goodsSellerId}"></td>
+					<td th:text="${l.goodsRegDate}"></td>
+					<td>
+						<!-- thymeleaf (memberId=${l.memberId}, memberPw=${l.memberPw})  ?키=값&키=값 에 해당 -->
+									<!-- /member/modifyMember?memberId=id&memberPw=pw -->
+						<a href="#">수정</a>
+					</td>
+					<td>
+						<a th:href="@{/goods/removeGoods(goodsCode=${l.goodsCode},goodsName=${l.goodsName},goodsSellerId=${l.goodsSellerId})}">삭제</a>
+					</td>
+				</tr>
+				<tr th:unless="${not #lists.isEmpty(goodsList)}">
+					<td colspan="9">조회된 내용이 없습니다.</td>
+				</tr>
+			</tbody>
+		</table>
+	</th:block>
+
+</html>
