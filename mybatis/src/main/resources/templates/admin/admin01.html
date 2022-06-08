@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{layout/default.html}">
+	
+	<!-- 사용자 정의 js 선언 -->
+	<th:block layout:fragment="customJs">
+		<script type="text/javascript" th:src="@{/js/jquery-3.6.0.min.js}"></script>
+		<script>
+			$(function(){
+				
+				// 동의 모두선택 / 해제
+				const agreeChkAll = document.querySelector('input[name=agree_all]');
+				    agreeChkAll.addEventListener('change', (e) => {
+				    let agreeChk = document.querySelectorAll('input[name=agree]');
+				    for(let i = 0; i < agreeChk.length; i++){
+				      agreeChk[i].checked = e.target.checked;
+				    }
+				});
+			});
+		</script>
+	</th:block>
+	
+	<!-- 사용자 정의 contents -->
+	<th:block layout:fragment="customContents">
+		<form th:action="@{/member/addMember}" method="get">
+			HTML CSS JSResult Skip Results Iframe
+			EDIT ON	<br/>
+			<label for="agree_all">
+			  <input type="checkbox" name="agree_all" id="agree_all">
+			  <span>모두 동의합니다</span>
+			</label>	<br/>
+			<label for="agree">
+			  <input type="checkbox" name="agree" value="1">
+			  <span>이용약관 동의<strong>(필수)</strong></span>
+			</label>	<br/>
+			<label for="agree">
+			  <input type="checkbox" name="agree" value="2">
+			  <span>개인정보 수집, 이용 동의<strong>(필수)</strong></span>
+			</label>	<br/>
+			<label for="agree">
+			  <input type="checkbox" name="agree" value="3">
+			  <span>개인정보 이용 동의<strong>(필수)</strong></span>
+			</label>	<br/>
+			<label for="agree">
+			  <input type="checkbox" name="agree" value="4">
+			  <span>이벤트, 혜택정보 수신동의<strong class="select_disable">(선택)</strong></span>
+			</label>	<br/>
+			<button type="submit">버튼</button>
+		</form>
+	</th:block>
+
+</html>

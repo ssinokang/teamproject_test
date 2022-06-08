@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{layout/default.html}">
+	
+	<!-- 사용자 정의 js 선언 -->
+	<th:block layout:fragment="customJs">
+		<script type="text/javascript" th:src="@{/js/jquery-3.6.0.min.js}"></script>
+		<script>
+			$(function(){
+				
+				function validationCheck(data){
+					if(typeof data == 'undefined' || data == null || data == ''){
+						return true;
+					}
+					return false;
+				}
+				
+				$(document).on('keyup', '#memberId', function(){
+					$('#addMemberForm input').not('#memberId').prop('disabled', true);
+					$('#addMemberForm select').prop('disabled', true);
+					$('#addMemberForm button').not('#idCheck').prop('disabled', true);
+				});
+				
+				$('#idCheck').click(function(){
+					var memberId = $('input[name="memberId"]').val();
+					console.log(memberId);
+					
+					if(validationCheck(memberId)){
+						alert('회원 아이디를 입력해주세요.');
+						$('input[name="memberId"]').focus();
+						return false;
+					}else{
+						/* ajax 아이디 중복 체크 */
+						var request = $.ajax({
+							url: "/member/idCheck",
+							method: "POST",				
+							data: { 'memberId' : memberId },	
+							dataType: "json"			
+						});
+						
+						request.done(function( isIdCheck ) {
+							console.log(isIdCheck);
+							if(isIdCheck){
+								alert('중복된 아이디입니다.');
+								$('input[name="memberId"]').focus();
+							}else{
+								$('#addMemberForm input').prop('disabled', false);
+								$('#addMemberForm select').prop('disabled', false);
+								$('#addMemberForm button').prop('disabled', false);
+							}
+						});
+						
+						request.fail(function( jqXHR, textStatus ) {
+							alert( "Request failed: " + textStatus );
+						});
+					}
+				});
+			});
+		</script>
+	</th:block>
+	
+	<!-- 사용자 정의 contents -->
+	<th:block layout:fragment="customContents">
+		<form id="addMemberForm" th:action="@{/member/addMember}" method="post">
+			<table border="1">
+				<tbody>
+					<tr>
+						<td>회원 아이디</td>
+						<td>
+							<input type="text" id="memberId" name="memberId" placeholder="회원의 아이디를 입력해주세요.">
+						</td>
+						<td>
+							<button id="idCheck" type="button">아이디 중복 체크</button>
+						</td>
+					</tr>
+					<tr>
+						<td>회원 비밀번호</td>
+						<td colspan="2">
+							<input type="text" name="memberPw" placeholder="회원의 비밀번호를 입력해주세요." style="width: 98%;" disabled="disabled">
+						</td>
+					</tr>
+					<tr>
+						<td>회원 이름</td>
+						<td colspan="2">
+							<input type="text" name="memberName" placeholder="회원의 이름을 입력해주세요." style="width: 98%;" disabled="disabled">
+						</td>
+					</tr>
+					<tr>
+						<td>회원 등급</td>
+						<td colspan="2">
+							<select name="memberLevel" style="width: 100%;" disabled="disabled">
+								<th:block th:if="${not #lists.isEmpty(memberLevelList)}"  th:each="l : ${memberLevelList}">
+									<option th:value="${l.levelNum}">[[${l.levelName}]]</option>
+								</th:block>
+								<th:block th:unless="${not #lists.isEmpty(memberLevelList)}">
+									<option th:value="">등록된 회원등급이 없습니다.</option>
+								</th:block>
+							</select>
+						</td>
+					</tr>
+					<tr>
+						<td>회원 주소</td>
+						<td colspan="2">
+							<input type="text" name="memberAddr" placeholder="회원의 주소를 입력해주세요." style="width: 98%;" disabled="disabled">
+						</td>
+					</tr>
+					<tr>
+						<td>회원 이메일</td>
+						<td colspan="2">
+							<input type="text" name="memberEmail" placeholder="회원의 이메일을 입력해주세요." style="width: 98%;" disabled="disabled">
+						</td>
+					</tr>
+					<tr>
+						<td colspan="3">
+							<button type="submit" style="width: 100%;" disabled="disabled">회원가입</button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</th:block>
+
+</html>
